@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block container %}
+{% include 'nav.html'%} 
+
+<div style ="width:800px; margin:0 auto;">
+    <form method='POST' action ='{%url 'login'%}'>
+        {% if error %}
+            <p style='color: red;'>{{ error }}</p>
+        {% endif %}
+        <table border='1px'>
+            <thead>
+            <tr>
+                <th>Login</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+            {% csrf_token %}
+                <td>Usuario</td>
+                <td><input type="text" id="username" name="username"></td>
+            </tr>
+            <tr>
+                <td>Clave</td>
+                <td><input type="password" id="passwors" name="password"></td>
+                <td><input type='submit' value='Login'></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+#Mostrar varibles en los templates desde la vista
+{{ varibale a mostrar }}
+
+#Mostrar datos de la vista a los templates
+def listar_pacientes(request):
+    #render recibe tres patametros
+    reurn render(request, 'vista', 'parametros')
+
+#Mostrar datos en los templates desde la base de datos
+def index(request):
+    #Query que devuelve los datos
+    users = Custom.objects.all()
+    return render = (request, 'index.html', {'users':users})
+
+#Mostrar atributos de un objeto
+    users[0].user.__dict()__
